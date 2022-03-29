@@ -26,12 +26,11 @@ bool isConnected = false;
 
 void setup() {
   // Setup serial
-  // if (serialEnabled)
-  // {
-  //   Serial.begin(serialBuadrate);
-  // }
-  // Serial.begin(serialBuadrate);
-  // Set output mode for all GPIO pins
+  if (serialEnabled)
+  {
+    Serial.begin(serialBuadrate);
+  }
+
   pinMode(midSwitchRelay, OUTPUT);
   pinMode(leftSwitchRelay, OUTPUT);
   pinMode(rightSwitchRelay, OUTPUT);

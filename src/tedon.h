@@ -36,12 +36,12 @@
 #define linkLed GPIO13
 
 // Serial configurations
-#define serialEnabled true
+#define serialEnabled false
 #define serialBuadrate 115200
 
 // Server Configuration
 int mqttPort = 1883;
-char dmiotServer[] = "46.100.58.20";
+char dmiotServer[] = "platform.dmiot.ir";
 
 // We assume that all GPIOs are LOW
 bool gpioState[] = {false, false, false, false};
