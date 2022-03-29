@@ -25,16 +25,19 @@
 #define CHECK_CONNETCTION_ITERATIONS 5000000
 
 // Input Constants
-#define midSwitchInput GPIO4
-#define leftSwitchInput GPIO14
-#define rightSwitchInput GPIO5
+#define leftSwitchInput GPIO0
+#define midSwitchInput GPIO3
+#define rightSwitchInput GPIO1
 
 // Output Constants
-#define midSwitchRelay GPIO15
-#define leftSwitchRelay GPIO2
-#define rightSwitchRelay GPIO13
-#define pinsPullDown GPIO16
-#define whiteLed GPIO0
+#define leftSwitchRelay GPIO5
+#define midSwitchRelay GPIO14
+#define rightSwitchRelay GPIO12
+#define linkLed GPIO13
+
+// Serial configurations
+#define serialEnabled true
+#define serialBuadrate 115200
 
 // Server Configuration
 int mqttPort = 1883;
@@ -42,4 +45,4 @@ char dmiotServer[] = "46.100.58.20";
 
 // We assume that all GPIOs are LOW
 bool gpioState[] = {false, false, false, false};
-char wifiSSID[20] = "DM Switch 1 pole";
+char wifiSSID[20] = "DM Wall T1";
