@@ -53,21 +53,30 @@ void setup() {
   WiFiManager wifiManager;
 
   // Uncomment and run it once, if you want to erase all the stored information
-  // wifiManager.resetSettings();
+  if (resetWifiEnabled) {
+      wifiManager.resetSettings();
+  }
 
   // set custom ip for portal
-  //wifiManager.setAPConfig(IPAddress(10,0,1,1), IPAddress(10,0,1,1), IPAddress(255,255,255,0));
+  if (customIpEnabled) {
+      wifiManager.setAPConfig(IPAddress(10,0,1,1), IPAddress(10,0,1,1), IPAddress(255,255,255,0));
+  }
 
   // fetches ssid and pass from eeprom and tries to connect if it does not connect it starts an
   // access point with the specified name and goes into a blocking loop awaiting configuration
-  wifiManager.setAPCallback(configModeCallback);
-  wifiManager.autoConnect(wifiSSID);
+  if (callbackEnabled) {
+    wifiManager.setAPCallback(configModeCallback);
+  }
 
-  // or use this for auto generated name ESP + ChipID
-  // wifiManager.autoConnect();
+  if (autoGenerateSSID) {
+    // Use this for auto generated name ESP + ChipID
+    wifiManager.autoConnect();
+  } else {
+    wifiManager.autoConnect(wifiSSID);
+  }
 
   // Configuration portal timeout
-  wifiManager.setConfigPortalTimeout(60);
+  wifiManager.setConfigPortalTimeout(portalTimeout);
 
   // if you get here you have connected to the WiFi
   Serial.println("[ INFO ] Connected to WiFi: ");

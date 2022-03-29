@@ -39,10 +39,18 @@
 #define serialEnabled false
 #define serialBuadrate 115200
 
+// Wifi configuration
+#define resetWifiEnabled false
+#define customIpEnabled false
+#define callbackEnabled false
+#define autoGenerateSSID false
+#define portalTimeout 60
+
+char wifiSSID[20] = "DM Wall T1";
+
 // Server Configuration
 int mqttPort = 1883;
 char dmiotServer[] = "platform.dmiot.ir";
 
 // We assume that all GPIOs are LOW
 bool gpioState[] = {false, false, false, false};
-char wifiSSID[20] = "DM Wall T1";
