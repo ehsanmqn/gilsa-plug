@@ -5,7 +5,7 @@
 #include <WiFiManager.h>
 #include <DNSServer.h>
 #include <ESP8266WebServer.h>
-#include "tedon.h"
+#include "config.h"
 
 // Set web server and wifi client
 WiFiServer server(80);
